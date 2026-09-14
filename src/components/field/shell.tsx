@@ -13,7 +13,10 @@ export function useMe() {
   return useQuery({ queryKey: ["me"], queryFn: () => fn({}), staleTime: 60_000 });
 }
 
-type NavItem = { to: string; label: string };
+type NavItem = {
+  to: "/dashboard" | "/attendance" | "/activities" | "/placement" | "/monitor" | "/manage" | "/settings";
+  label: string;
+};
 
 const STUDENT_NAV: NavItem[] = [
   { to: "/dashboard", label: "Dashboard" },
