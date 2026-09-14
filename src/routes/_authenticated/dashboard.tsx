@@ -1,16 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import { toast } from "sonner";
 
 import { AppShell, Panel, StatCard, StatusBadge, useMe } from "@/components/field/shell";
 import { Button } from "@/components/ui/button";
-import {
-  formatDateShort,
-  formatTime,
-  getStudentDashboardKey,
-} from "@/lib/field-client";
+import { formatDateShort, formatTime } from "@/lib/field-time";
+
+const getStudentDashboardKey = ["student-dashboard"] as const;
 import {
   getMonitorOverview,
   getStudentDashboard,
@@ -150,7 +148,7 @@ function StudentDashboard() {
         <StatCard
           label="Days remaining"
           value={data.stats.daysRemaining}
-          hint={data.stats.totalDays ? `of ${data.stats.totalDays} days` : undefined}
+          hint={data.stats.totalDays ? `of ${data.stats.totalDays} days` : ""}
         />
       </div>
 
