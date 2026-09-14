@@ -15,6 +15,7 @@ import { Route as AuthRouteImport } from './routes/auth'
 import { Route as AuthenticatedActivitiesRouteImport } from './routes/_authenticated/activities'
 import { Route as AuthenticatedAttendanceRouteImport } from './routes/_authenticated/attendance'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
+import { Route as AuthenticatedMonitorRouteImport } from './routes/_authenticated/monitor'
 import { Route as AuthenticatedPlacementRouteImport } from './routes/_authenticated/placement'
 
 const IndexRoute = IndexRouteImport.update({
@@ -46,6 +47,11 @@ const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedMonitorRoute = AuthenticatedMonitorRouteImport.update({
+  id: '/monitor',
+  path: '/monitor',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedPlacementRoute = AuthenticatedPlacementRouteImport.update({
   id: '/placement',
   path: '/placement',
@@ -58,6 +64,7 @@ export interface FileRoutesByFullPath {
   '/activities': typeof AuthenticatedActivitiesRoute
   '/attendance': typeof AuthenticatedAttendanceRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/monitor': typeof AuthenticatedMonitorRoute
   '/placement': typeof AuthenticatedPlacementRoute
 }
 export interface FileRoutesByTo {
@@ -66,6 +73,7 @@ export interface FileRoutesByTo {
   '/activities': typeof AuthenticatedActivitiesRoute
   '/attendance': typeof AuthenticatedAttendanceRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
+  '/monitor': typeof AuthenticatedMonitorRoute
   '/placement': typeof AuthenticatedPlacementRoute
 }
 export interface FileRoutesById {
@@ -76,15 +84,28 @@ export interface FileRoutesById {
   '/_authenticated/activities': typeof AuthenticatedActivitiesRoute
   '/_authenticated/attendance': typeof AuthenticatedAttendanceRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
+  '/_authenticated/monitor': typeof AuthenticatedMonitorRoute
   '/_authenticated/placement': typeof AuthenticatedPlacementRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/auth' | '/activities' | '/attendance' | '/dashboard' | '/placement'
+    | '/'
+    | '/auth'
+    | '/activities'
+    | '/attendance'
+    | '/dashboard'
+    | '/monitor'
+    | '/placement'
   fileRoutesByTo: FileRoutesByTo
   to:
-    '/' | '/auth' | '/activities' | '/attendance' | '/dashboard' | '/placement'
+    | '/'
+    | '/auth'
+    | '/activities'
+    | '/attendance'
+    | '/dashboard'
+    | '/monitor'
+    | '/placement'
   id:
     | '__root__'
     | '/'
@@ -93,6 +114,7 @@ export interface FileRouteTypes {
     | '/_authenticated/activities'
     | '/_authenticated/attendance'
     | '/_authenticated/dashboard'
+    | '/_authenticated/monitor'
     | '/_authenticated/placement'
   fileRoutesById: FileRoutesById
 }
@@ -146,6 +168,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedDashboardRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/monitor': {
+      id: '/_authenticated/monitor'
+      path: '/monitor'
+      fullPath: '/monitor'
+      preLoaderRoute: typeof AuthenticatedMonitorRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/placement': {
       id: '/_authenticated/placement'
       path: '/placement'
@@ -160,6 +189,7 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedActivitiesRoute: typeof AuthenticatedActivitiesRoute
   AuthenticatedAttendanceRoute: typeof AuthenticatedAttendanceRoute
   AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+  AuthenticatedMonitorRoute: typeof AuthenticatedMonitorRoute
   AuthenticatedPlacementRoute: typeof AuthenticatedPlacementRoute
 }
 
@@ -167,6 +197,7 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedActivitiesRoute: AuthenticatedActivitiesRoute,
   AuthenticatedAttendanceRoute: AuthenticatedAttendanceRoute,
   AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+  AuthenticatedMonitorRoute: AuthenticatedMonitorRoute,
   AuthenticatedPlacementRoute: AuthenticatedPlacementRoute,
 }
 
