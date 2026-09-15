@@ -174,7 +174,7 @@ function Landing() {
           <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
             Everything you need for field training
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
+          <p className="mx-auto mt-3 max-w-2xl text-sm text-foreground/80">
             Built to replace paper attendance sheets and scattered communication with one reliable,
             role-aware console.
           </p>
