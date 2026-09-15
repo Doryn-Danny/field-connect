@@ -147,7 +147,7 @@ function Landing() {
           {/* Decorative data panels */}
           <div className="mt-12 grid gap-3 sm:grid-cols-3">
             <div className="glass rounded-xl p-4">
-              <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+              <p className="font-mono text-xs uppercase tracking-widest text-foreground/70">
                 Students
               </p>
               <p className="mt-1 font-mono text-2xl font-semibold text-card-foreground">6</p>
@@ -159,7 +159,7 @@ function Landing() {
               <p className="mt-1 font-mono text-2xl font-semibold text-card-foreground">4</p>
             </div>
             <div className="glass rounded-xl p-4">
-              <p className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
+              <p className="font-mono text-xs uppercase tracking-widest text-foreground/70">
                 Supervisors
               </p>
               <p className="mt-1 font-mono text-2xl font-semibold text-card-foreground">4</p>
@@ -188,8 +188,8 @@ function Landing() {
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary/15 text-primary">
                 <f.icon className="h-5 w-5" />
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-card-foreground">{f.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{f.body}</p>
+              <h3 className="mt-4 text-lg font-semibold text-foreground">{f.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-foreground/80">{f.body}</p>
             </div>
           ))}
         </div>
@@ -201,14 +201,14 @@ function Landing() {
           <h2 className="text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
             Built for every role
           </h2>
-          <p className="mx-auto mt-3 max-w-2xl text-sm text-muted-foreground">
+          <p className="mx-auto mt-3 max-w-2xl text-sm text-foreground/80">
             Each user sees the tools that matter to them — nothing more, nothing less.
           </p>
         </div>
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
           {ROLES.map((r) => (
             <div key={r.label} className="rounded-xl border border-white/10 bg-white/[0.04] p-6">
-              <h3 className="text-lg font-semibold text-card-foreground">{r.label}</h3>
+              <h3 className="text-lg font-semibold text-foreground">{r.label}</h3>
               <ul className="mt-4 space-y-3">
                 {r.items.map((item) => (
                   <li key={item} className="flex items-start gap-2 text-sm text-foreground/80">
